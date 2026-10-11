@@ -1,0 +1,20 @@
+# WHITELIST — everything is ignored except the paths explicitly un-ignored below.
+/*
+!.gitignore
+!Cargo.toml
+!Cargo.lock
+!rust-toolchain.toml
+!justfile
+!E4A-AGENT-PLAN.md
+!README.md
+!AGENTS.md
+!ARCHITECTURE.md
+!SECURITY.md
+!CODE_OF_CONDUCT.md
+!.cargo/
+!src/
+!docs/
+!scripts/
+# build / runtime artifacts, even inside whitelisted dirs
+target/
+.env
