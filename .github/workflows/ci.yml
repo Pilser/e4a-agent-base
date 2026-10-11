@@ -1,0 +1,26 @@
+name: CI
+
+# Minimal: compile check + shared build cache. No fmt/clippy/test/release jobs here
+# (upstream had macos matrix, musl-cross, pages, release — all stripped).
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      # No toolchain version pinned here: rust-toolchain.toml (1.96.0) governs.
+      - uses: dtolnay/rust-toolchain@master
+      - uses: Swatinem/rust-cache@v2
+      - run: cargo check --locked
