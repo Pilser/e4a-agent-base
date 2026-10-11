@@ -10,6 +10,9 @@ repository = "https://github.com/gi-dellav/zerostack"
 readme = "README.md"
 keywords = ["ai", "cli", "dev"]
 
+# Detached from any parent workspace (nested inside education4/ system tree).
+[workspace]
+
 [features]
 default = ['loop', 'git-worktree', 'mcp', 'subagents', 'archmd', 'status-signals', 'multithread', 'export']
 status-signals = []
