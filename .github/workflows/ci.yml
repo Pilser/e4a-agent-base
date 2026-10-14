@@ -20,7 +20,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      # No toolchain version pinned here: rust-toolchain.toml (1.96.0) governs.
       - uses: dtolnay/rust-toolchain@master
+        with:
+          toolchain: 1.96.0
+          components: rustfmt, clippy
       - uses: Swatinem/rust-cache@v2
       - run: cargo check --locked
